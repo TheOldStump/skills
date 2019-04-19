@@ -3,11 +3,13 @@
 
 using namespace pros;
 
+
+
 void initialize()
 {
-	printf("init\n");
     pros::lcd::initialize();
 }
+
 
 void disabled() {}
 

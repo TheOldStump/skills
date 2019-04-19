@@ -53,7 +53,6 @@ void shoot_twice()
     shoot.move(127);
     pros::delay(650);
     shoot.move(0);
-    pros::delay(100);
     intake.move(-127);
     pros::delay(350);
     intake.move(0);
@@ -138,12 +137,6 @@ void no_palka(int x)
         TurnAngle(-9);
         intake.move(-127);
         drive(110);
-        // leftBase.moveVoltage(10000);
-        // rightBase.moveVoltage(11000);
-        // pros::delay(1600);
-        // leftBase.moveVoltage(0);
-        // rightBase.moveVoltage(0);
-        // chassis.resetSensors();
         calib(true, 900);
         drive(-15);
         pros::delay(300);
@@ -153,11 +146,9 @@ void no_palka(int x)
         TurnAngle(90);
         intake.move(0);
         calib(false, 550);
-
         drive(12); //getting a ball from the top of a cap
         TurnAngle(-51);
         drive(37);
-
         intakeX = -127;
         pros::Task(getBallIntake, NULL);
         drive(12);
@@ -166,149 +157,87 @@ void no_palka(int x)
         drive(-27);
         TurnAngle(50);
         calib(false, 400);
-
-
         drive(106); //second pole with flags
         TurnAngle(-72);
-        // calib(false, 700);
-        // drive(10);
-        // TurnAngle(7);
-        shoot_twice();
+        angleController.setTarget(0.0);
+        angleController.waitUntilSettled();
+        shoot.move(127);
+        pros::delay(650);
+        shoot.move(0);
         intake.move(-127);
-        leftBase.moveVoltage(9000);
+        pros::delay(300);
+        intake.move(0);
+        TurnAngle(-6);
+        angleController.setTarget(55.0);
+        angleController.waitUntilSettled();
+        shoot.move(127);
+        pros::delay(700);
+        shoot.move(0);
+        intake.move(-127);
+        leftBase.moveVoltage(8900);
         rightBase.moveVoltage(10000);
-        pros::delay(1400);
+        pros::delay(1600);
         leftBase.moveVoltage(0);
         rightBase.moveVoltage(0);
         pros::delay(400);
-        drive(-87);
+        drive(-91);
         pros::delay(20);
         TurnAngle(90);
         intake.move(-127);
-        drive(84);
+        drive(82);
         intake.move(-127);
-        drive(11);
+        drive(12.5);
         drive(-10);
         pros::delay(700);
         angleController.setTarget(25.0);
         angleController.waitUntilSettled();
         intakeX = 127;
         pros::Task(getBallIntake, NULL);
-
-
         TurnAngle(-52);
         shoot.move(127);
         pros::delay(650);
         shoot.move(0);
-        
-        
-
         intake.move(-127);
-        TurnAngle(52);
+        TurnAngle(46);
         intake.move(100);
-        drive(55);
-        TurnAngle(7);
-        drive(-27);
-        // rightBase.moveVoltage(-5000);
-        // leftBase.moveVoltage(-5000);
-        // pros::delay(500);
-        // leftBase.moveVoltage(0);
-        // rightBase.moveVoltage(0);
+        drive(40);
+        TurnAngle(17);
         TurnAngle(-90);
-        // shoot.move(127);
-        // pros::delay(650);
-        // shoot.move(0);
         drive(50);
         calib(true, 600);
-        
-
         pros::delay(100);
         drive(-128);
+        TurnAngle(7);
         angleController.setTarget(55.0);
         angleController.waitUntilSettled();
         shoot.move(127);
         pros::delay(700);
         shoot.move(0);
         pros::delay(100);
-        TurnAngle(-90);
+        TurnAngle(-97);
         intake.move(127); //first flags
-        drive(52);
+        drive(50);
         intake.move(-127);
-        drive(28);
-        // intake.move(-127);  //third pole with flags
-        // drive(38);
-        // pros::delay(300);
-        // intake.move(100);
-        // drive(20);
-        drive(-32);
+        drive(20);
+        drive(-45);
         pros::delay(500);
         intake.move(0);
-        TurnAngle(116);
+        TurnAngle(105);
         angleController.setTarget(55.0);
         angleController.waitUntilSettled();
         shoot.move(127);
         pros::delay(700);
         shoot.move(0);
         intake.move(0);
-        TurnAngle(-26);
-        /*drive(-72);
+        TurnAngle(-15);
+        drive(-72);
         pros::delay(50);
         TurnAngle(90);
         pros::delay(50);
         calib(false, 500);
         drive(-57);
         stop();
-        pros::lcd::print(6, "Time: %d\n", (pros::millis() - startTime));
-        
-
-        /*
-        TurnAngle(-48);
-        drive(65);
-        TurnAngle(35);
-        calib(true, 700);
-        
-        drive(-15);
-        TurnAngle(89);
-        pros::delay(20);
-        drive(-137);
-        TurnAngle(90);
-        calib(false, 500);
-        intake.move(-127); //1 step
-        drive(115);
-        pros::delay(400);
-        drive(-17);
-        intake.move(100);
-        drive(60);
-        drive(-5);
-        intake.move(0);
-        drive(-10);
-        TurnAngle(-90);
-        drive(13);
-        calib(true, 350);
-        drive(-17);
-        TurnAngle(37);
-        drive(11);
-        angleController.setTarget(10.0);
-        angleController.waitUntilSettled();
-        shoot.move(127);
-        pros::delay(650);
-        shoot.move(0);
-        drive(-13);
-        TurnAngle(72);
-        drive(-130);
-        calib(false, 700);
-        gyro1.reset();
-        drive(17);
-        TurnAngle(-90);
-        drive(63);
-        TurnAngle(-90);
-        calib(true, 800);
-        drive(-50);
-        pros::delay(50);
-        drive(-60);
-        pros::delay(50);
-        drive(-68);
-        stop();*/
+        pros::lcd::print(6, "End time: %d\n", (pros::millis() - startTime));
     }
 
     else if (x == 15)
