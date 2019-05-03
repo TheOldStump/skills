@@ -14,5 +14,9 @@ void no_palka(int x);
 void ball_in_the_middle(int x);
 void getBallIntake(void* params);
 void pre_driving();
+void Ernur(int x);
+void palka_2();
+void salam();
+void otvrat();
 
 #endif

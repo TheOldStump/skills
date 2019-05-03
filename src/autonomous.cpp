@@ -6,5 +6,5 @@ using namespace okapi;
 
 void autonomous()
 {
-   
+   no_palka(20);
 }

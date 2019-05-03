@@ -20,6 +20,8 @@ extern okapi::Controller controller;
 extern okapi::ADIGyro gyro1;
 extern pros::ADILineSensor line;
 
+extern okapi::ADIUltrasonic sonic;
+
 extern okapi::IterativePosPIDController left_PID;
 extern okapi::IterativePosPIDController right_PID;
 
@@ -28,5 +30,8 @@ extern okapi::IterativePosPIDController turnAngle_PID;
 extern okapi::MotorGroup leftBase;
 extern okapi::MotorGroup rightBase;
 extern okapi::ChassisControllerIntegrated chassis;
+
+extern okapi::Motor ernur;
+extern okapi::AsyncPosIntegratedController ernurController;
 
 #endif

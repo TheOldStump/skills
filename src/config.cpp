@@ -16,6 +16,8 @@ auto angleController = AsyncControllerFactory::posIntegrated(angle, 200);
 auto gyro1 = ADIGyro(1, 1.0);
 auto line = pros::ADILineSensor(2);
 
+auto sonic = ADIUltrasonic(3, 4);
+
 auto controller = Controller();
 
 //Driving PID config
@@ -31,3 +33,6 @@ auto turnAngle_PID = IterativeControllerFactory::posPID(0.00705, 0.0087, 0.00003
 auto leftBase = MotorGroup({leftBase1, leftBase2});
 auto rightBase = MotorGroup({rightBase1, rightBase2});
 auto chassis = ChassisControllerFactory::create(leftBase, rightBase, AbstractMotor::gearset::green, {4_in, 245_mm});
+
+auto ernur = Motor(11, true, AbstractMotor::gearset::green);
+auto ernurController = AsyncControllerFactory::posIntegrated(ernur, 200);
